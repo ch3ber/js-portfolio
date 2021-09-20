@@ -80,7 +80,7 @@ module.exports = {
       minimize: true, //activar la minificacion
       minimizer: [
          new CssMinimizerPlugin(), //minificar css
-         new TerserPlugin(), //minificar mejor
+         new TerserPlugin(), //minificar mejor el javascript
       ]
    }
 }

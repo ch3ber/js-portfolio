@@ -3,6 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin'); //plugin para el manej
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //plugin para el manejo de css
 const CopyPlugin = require('copy-webpack-plugin'); //plugin para copiar elementos
 const Dotenv = require('dotenv-webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
    entry: './src/index.js', // archivo de entrada
@@ -12,7 +13,7 @@ module.exports = {
       assetModuleFilename: 'assets/images/[hash][ext][query]' //hashear el nombre de las imagenes
    },
    mode: 'development',
-   watch: true,
+   devtool: 'source-map',
    resolve: {
       extensions: ['.js'], //manejo de las extensiones
       alias: { //definir alias
@@ -72,5 +73,12 @@ module.exports = {
          ]
       }),
       new Dotenv(),
+      new BundleAnalyzerPlugin(),
    ],
+   devServer: {
+      static: path.join(__dirname, 'dist'),
+      compress: true,
+      historyApiFallback: true,
+      port: 8080,
+   },
 }
