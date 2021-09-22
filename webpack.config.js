@@ -15,7 +15,7 @@ module.exports = {
       assetModuleFilename: 'assets/images/[hash][ext][query]' //hashear el nombre de las imagenes
    },
    resolve: {
-      extensions: ['.js'], //manejo de las extensiones
+      extensions: ['.js', '.jsx'], //manejo de las extensiones
       alias: { //definir alias
          '@utils': path.resolve(__dirname, 'src/utils/'),
          '@templates': path.resolve(__dirname, 'src/templates/'),
@@ -26,7 +26,7 @@ module.exports = {
    module: {
       rules: [
          {
-            test: /\.m?js$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: {
                loader: 'babel-loader' //transpilador de javascript

@@ -1,6 +1,7 @@
 {
    "presets": [
-      "@babel/preset-env" //utilizar el preset de babel
+      "@babel/preset-env", //utilizar el preset de babel
+      "@babel/preset-react"
    ],
    "plugins": [
       "@babel/plugin-transform-runtime" //trabajar con async await
